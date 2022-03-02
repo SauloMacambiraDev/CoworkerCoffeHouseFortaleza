@@ -25,6 +25,11 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 tools:src="@drawable/room_img" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_background" />
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -33,51 +38,86 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/card_view_room_image"
             android:layout_marginBottom="32px"
-            android:layout_toRightOf="@id/card_view_room_image"
+            android:layout_toEndOf="@id/card_view_room_image"
             android:fontFamily="monospace"
-            tools:text="Room Title"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Room Title" />
 
         <TextView
             android:id="@+id/text_view_description_room"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_view_title_room"
-            android:layout_toRightOf="@id/card_view_room_image"
+            android:layout_toEndOf="@id/card_view_room_image"
             android:fontFamily="monospace"
-            tools:text="Suspendisse ultrices at diam lectus nullam. Nisl, sagittis viverra enim erat tortor ultricies massa turpis. Arcu pulvinar aenean nam laoreet nulla."
             android:textSize="12sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Suspendisse ultrices at diam lectus nullam. Nisl, sagittis viverra enim erat tortor ultricies massa turpis. Arcu pulvinar aenean nam laoreet nulla." />
 
 
-        <LinearLayout
-            android:id="@+id/linear_layout_button_rent_room"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/card_view_room_image"
-            android:layout_alignEnd="@id/text_view_description_room"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            android:layout_below="@id/card_view_room_image">
 
-            <TextView
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_rating_content"
+                android:padding="0dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:fontFamily="monospace"
-                android:text="Rent Room"
-                android:textColor="#212353"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:layout_marginLeft="24dp">
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="14dp"
+                <RatingBar
+                    android:id="@+id/rating_bar_room_rate"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:rating="3.5" />
+
+                <TextView
+                    android:id="@+id/text_view_total_number_rates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rating_bar_room_rate"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    tools:text="4790 avaliações de clientes" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_button_rent_room"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/relative_layout_rating_content"
                 android:layout_gravity="center_vertical"
-                android:scaleType="centerCrop"
-                android:src="@drawable/arrow_right_purple" />
-        </LinearLayout>
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:fontFamily="monospace"
+                    android:text="Rent Room"
+                    android:textColor="#212353"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/arrow_right_purple" />
+            </LinearLayout>
+        </RelativeLayout>
+
 
     </RelativeLayout>
 

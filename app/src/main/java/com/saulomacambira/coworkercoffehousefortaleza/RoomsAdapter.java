@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -45,6 +46,8 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.RoomViewHold
         private TextView textViewTitleRoom;
         private TextView textViewDescriptioRoom;
         private LinearLayout linearLayoutButtonRentRoom;
+        private RatingBar ratingBarRoomRate;
+        private TextView textViewTotalNumberOfRates;
 
         private final Context context;
         private final View itemView;
@@ -61,6 +64,8 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.RoomViewHold
             textViewTitleRoom = itemView.findViewById(R.id.text_view_title_room);
             textViewDescriptioRoom = itemView.findViewById(R.id.text_view_description_room);
             linearLayoutButtonRentRoom = itemView.findViewById(R.id.linear_layout_button_rent_room);
+            ratingBarRoomRate = itemView.findViewById(R.id.rating_bar_room_rate);
+            textViewTotalNumberOfRates = itemView.findViewById(R.id.text_view_total_number_rates);
         }
 
         private void bind(Room room){
@@ -76,6 +81,9 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.RoomViewHold
                     context.startActivity(intent);
                 }
             });
+            ratingBarRoomRate.setRating(room.getRating());
+            textViewTotalNumberOfRates.setText(room.getTotalNumberOfRates() + " avaliações de clientes");
+
         }
     }
 }

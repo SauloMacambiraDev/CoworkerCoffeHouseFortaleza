@@ -1,5 +1,7 @@
 package com.saulomacambira.coworkercoffehousefortaleza;
 
+import androidx.annotation.DrawableRes;
+
 public class MenuItem {
     private int id;
     private String title;
@@ -7,7 +9,7 @@ public class MenuItem {
     private double price;
     private int imageResourceId;
 
-    public MenuItem(int id, String title, String description, double price, int imageResourceId) {
+    public MenuItem(int id, String title, String description, double price, @DrawableRes int imageResourceId) {
         this.id = id;
         this.title = title;
         this.description = description;

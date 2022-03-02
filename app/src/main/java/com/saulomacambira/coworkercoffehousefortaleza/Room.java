@@ -1,5 +1,7 @@
 package com.saulomacambira.coworkercoffehousefortaleza;
 
+import androidx.annotation.DrawableRes;
+
 public class Room {
     private int id;
     private String title;
@@ -7,14 +9,35 @@ public class Room {
     private int imageResourceId;
     private double price;
     private int capacityOfPeople;
+    private float rating;
+    private int totalNumberOfRates;
 
-    public Room(int id, String title, String description, int imageResourceId, double price, int capacityOfPeople) {
+    public Room(int id, String title, String description, @DrawableRes int imageResourceId, double price, int capacityOfPeople, float rating, int totalNumberOfRates) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.imageResourceId = imageResourceId;
         this.price = price;
         this.capacityOfPeople = capacityOfPeople;
+        this.rating = rating;
+        this.totalNumberOfRates = totalNumberOfRates;
+    }
+
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+    public int getTotalNumberOfRates() {
+        return totalNumberOfRates;
+    }
+
+    public void setTotalNumberOfRates(int totalNumberOfRates) {
+        this.totalNumberOfRates = totalNumberOfRates;
     }
 
     public int getId() {
